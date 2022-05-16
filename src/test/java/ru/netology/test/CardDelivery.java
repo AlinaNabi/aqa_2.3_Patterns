@@ -45,7 +45,7 @@ public class CardDelivery {
         $("[data-test-id='date']  input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date']  input").setValue(secondMeetingDate);
         $(".button").click();
-        $("data-test-id='replan-notification'").shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
+        $("[data-test-id='replan-notification']").shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $("[data-test-id='replan-notification'] .button__content").click();
         $(withText("Успешно!")).shouldBe(Condition.visible);
         $("[data-test-id='success-notification'] .notification__content").shouldBe(Condition.visible)
