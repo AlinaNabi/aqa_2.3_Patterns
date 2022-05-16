@@ -1,14 +1,11 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.data.DataGenerator;
-
-import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -39,8 +36,8 @@ public class CardDelivery {
         $("[data-test-id='phone'] [name='phone']").setValue(DataGenerator.generatePhone());
         $("[class='checkbox__box']").click();
         $(".button").click();
-        $(withText("Успешно!")).shouldBe(Condition.visible);
-        $("[class='notification__content']").shouldBe(Condition.visible).shouldHave(Condition.exactText("Встреча успешно запланирована на " + firstMeetingDate));
+            $("[class='notification__content']").shouldBe(Condition.visible)
+                .shouldHave(Condition.exactText("Встреча успешно запланирована на " + firstMeetingDate));
 
         $("[data-test-id='date']  input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date']  input").setValue(secondMeetingDate);
